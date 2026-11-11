@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restless Earth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Restless Earth</h1>
+    <p>This map shows every earthquake recorded around the world, using live data from the USGS. Bigger dots are stronger earthquakes. The data updates every minute.</p>
+
+    <div class="controls">
+      <div>
+        <p class="control-title">Time range:</p>
+        <div id="range-buttons"></div>
+      </div>
+      <div>
+        <p class="control-title">Minimum magnitude: <span id="mag-label">all</span></p>
+        <input type="range" id="mag-slider" min="0" max="6" step="0.5" value="0">
+      </div>
+    </div>
+
+    <div id="map">
+      <div id="grid"></div>
+      <div id="quakes"></div>
+    </div>
+
+    <p class="legend">
+      Colour shows depth:
+      <span class="key shallow"></span> shallow (under 70 km)
+      <span class="key middle"></span> middle (70 to 300 km)
+      <span class="key deep"></span> deep (over 300 km).
+      Dots that flash happened in the last hour.
+    </p>
+
+    <p id="updated" class="note"></p>
+
+    <h2>Summary</h2>
+    <p>
+      There have been <span id="total">--</span> earthquakes in this time range.
+      The strongest was <span id="strongest">--</span> <span id="strongest-place"></span>.
+      The average magnitude is <span id="average">--</span>, and the most recent one was <span id="recent">--</span>.
+    </p>
+
+    <h2>Selected earthquake</h2>
+    <div id="details">
+      <p>Click a dot on the map or a row in the table to see more about an earthquake.</p>
+    </div>
+
+    <h2>Latest earthquakes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Magnitude</th>
+          <th>Location</th>
+          <th>When</th>
+        </tr>
+      </thead>
+      <tbody id="list"></tbody>
+    </table>
+
+    <footer>
+      <p>CCT 360, Data as Experience. Group members: Hassan Shakoor and Mujtaba Malik</p>
+      <p>Earthquake data from the <a href="https://earthquake.usgs.gov/earthquakes/feed/">USGS Earthquake Hazards Program</a></p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
